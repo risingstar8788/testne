@@ -1,1 +1,40 @@
-{\n    "name": "Untrusted Types for DevTools",\n    "description": "Abusing Trusted Types to discover XSS sinks.",\n    "version": "1.1.1",\n    "manifest_version": 3,\n    "icons": {\n        "128": "icons/icon128.png"\n    },\n    "permissions": [\n        "storage"\n    ],\n    "host_permissions": [\n        "http://*/*",\n        "https://*/*"\n    ],\n    "web_accessible_resources": [\n        {\n            "resources": ["settings.json"],\n            "matches": ["http://*/*", "https://*/*"]\n        }\n    ],\n    "content_scripts": [\n        {\n            "matches": [\n                "http://*/*",\n                "https://*/*"\n            ],\n            "all_frames": true,\n            "match_about_blank": true,\n            "run_at": "document_start",\n            "js": [\n                "build/content.js"\n            ]\n        }\n    ],\n    "devtools_page": "devtools.html",\n    "background": {\n        "service_worker": "build/background.js"\n    }\n}
+{
+    "name": "Untrusted Types for DevTools",
+    "description": "Abusing Trusted Types to discover XSS sinks.",
+    "version": "1.1.1",
+    "manifest_version": 3,
+    "icons": {
+        "128": "icons/icon128.png"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["settings.json"],
+            "matches": ["http://*/*", "https://*/*"]
+        }
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "all_frames": true,
+            "match_about_blank": true,
+            "run_at": "document_start",
+            "js": [
+                "build/content.js"
+            ]
+        }
+    ],
+    "devtools_page": "devtools.html",
+    "background": {
+        "service_worker": "build/background.js"
+    }
+}
